@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingshixun.project.eshop.module.order.dao.PageDao">
+<select id="getallpage"   resultType="ReceiverDTO">
+    SELECT
+      oi.id,
+      oi.productQuantity,
+      pr.id AS 'product.id',
+      pr.name AS 'product.name',
+      pr.productImage AS 'product.productImage',
+      oi.totalPrice,
+      oi.order_id AS 'order.id',
+      oi.status_code AS 'status.code'
+    FROM
+      qsx_order_item oi,
+      qsx_product pr
+  </select>
+<select id="getpage" >
+    SELECT
+      oi.id,
+      oi.productQuantity,
+      pr.id AS 'product.id',
+      pr.name AS 'product.name',
+      pr.productImage AS 'product.productImage',
+      oi.totalPrice,
+      oi.order_id AS 'order.id',
+      oi.status_code AS 'status.code'
+    FROM
+      qsx_order_item oi,
+      qsx_product pr
+   limit
+     #{starti}, #{count}
+  </select>
+
+</mapper>
